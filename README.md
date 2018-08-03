@@ -38,7 +38,7 @@ Aissen
 
 操作
 
-1.size
+### 1.size
 
 获取map的大小。
 ```
@@ -53,7 +53,7 @@ console.log('%s', map3.size)
 3
  
 
-2.set
+### 2.set
 
 设置键值对，键可以是各种类型，包括undefined，function。
 复制代码
@@ -86,7 +86,7 @@ console.log('map4 size: %s', map4.size)
 map4 size: 7
  
 
-3.get
+### 3.get
 
 获取键对应的值。
 ```
@@ -99,7 +99,7 @@ console.log('map5 value: %s', map5.get('k1'))
 map5 value: 6
  
 
-4.has
+### 4.has
 
 判断指定的键是否存在。
 ```
@@ -114,7 +114,7 @@ map6 undefined: true
 map6 k1: false
  
 
-5.delete
+### 5.delete
 
 删除键值对。
 ```
@@ -128,7 +128,7 @@ console.log('map7 undefined: %s', map7.has(undefined))
 map7 undefined: false
  
 
-6.clear
+### 6.clear
 
 删除map中的所有键值对。
 
@@ -149,9 +149,9 @@ map8, pre-clear size: 3
 map8, post-clear size: 0
  
 
-遍历
+## 遍历
 
-1.keys()
+### 1.keys()
 
 遍历map的所有key。
 
@@ -173,7 +173,7 @@ k2
 k3 
  
 
-2.values()
+### 2.values()
 
  遍历map所有的值。
 ```
@@ -188,7 +188,7 @@ for (let value of map9.values()) {
 3 
  
 
-3.entries()
+### 3.entries()
 
 遍历map的所有键值对。
 
@@ -215,7 +215,7 @@ for (let [key, value] of map9.entries()) {
 
  
 
-4.forEach()
+### 4.forEach()
 
 遍历map的所有键值对。
 ```
@@ -247,9 +247,9 @@ map9.forEach(function(value, key, map) {
 复制代码
  
 
-和其它结构的互转
+## 和其它结构的互转
 
-1.Map To Array
+### 1.Map To Array
 
 使用扩展运算符三个点（...）可将map内的元素都展开的数组。
 ```
@@ -264,7 +264,7 @@ console.log([...map10]);
 [ [ 'k1', 1 ], [ 'k2', 2 ], [ 'k3', 3 ] ]
  
 
-2.Array To Map
+### 2.Array To Map
 
 使用数组构造Map。
 ```
@@ -279,7 +279,7 @@ console.log(map11)
 Map { 'name' => 'Aissen', 'age' => 12 }
  
 
-3.Map To Object
+### 3.Map To Object
 
 写一个转换函数，遍历map的所有元素，将元素的键和值作为对象属性名和值写入Object中。
 
@@ -304,7 +304,7 @@ console.log(mapToObj(map12))
 { k1: 1, '[object Object]': 2 }
  
 
-4.Object To Map
+### 4.Object To Map
 
 同理，再写一个转换函数便利Object，将属性名和值作为键值对写入Map。
 
@@ -326,7 +326,7 @@ console.log(objToMap({yes: true, no: false}))
 Map { 'yes' => true, 'no' => false }
  
 
-5.Set To Map
+### 5.Set To Map
 ```
 const set = new Set([
   ['foo', 1],
@@ -340,7 +340,7 @@ console.log(map13)
 Map { 'foo' => 1, 'bar' => 2 }
  
 
-6.Map To Set
+### 6.Map To Set
 
 复制代码
 ```
