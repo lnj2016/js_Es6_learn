@@ -383,3 +383,5 @@ number : /\d+/
 
 re.email
 ```
+## es6 正则
+http://es6.ruanyifeng.com/#docs/regex#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%AD%A3%E5%88%99%E6%96%B9%E6%B3%95
