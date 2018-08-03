@@ -15,11 +15,11 @@ const objkey = {p1: 'v1'}
 
 map1.set(objkey, 'hello')
 console.log(map1.get(objkey))
-```
+
 结果：
 
 hello
- 
+```
 
 ### 2.Map可以接受数组作为参数，数组成员还是一个数组，其中有两个元素，一个表示键一个表示值。
 ```
@@ -29,12 +29,12 @@ const map2 = new Map([
 ])
 console.log(map2.get('name'))
 console.log(map2.get('age'))
-```
+
 结果：
 
 Aissen
 12
- 
+```
 
 操作
 
@@ -47,16 +47,16 @@ map3.set('k1', 1);
 map3.set('k2', 2);
 map3.set('k3', 3);
 console.log('%s', map3.size)
-```
+
 结果：
 
 3
- 
+```
 
 ### 2.set
 
 设置键值对，键可以是各种类型，包括undefined，function。
-复制代码
+
 ```
 const map4 = new Map();
 map4.set('k1', 6)        // 键是字符串
@@ -69,22 +69,23 @@ map4.set(fun, 'fun') // 键是 function
 console.log('map4 size: %s', map4.size)
 console.log('undefined value: %s', map4.get(undefined))
 console.log('fun value: %s', map4.get(fun))
-```
-复制代码
+
+
 结果：
 
 map4 size: 4
 undefined value: gagaga
 fun value: fun
-也可对set进行链式调用。
+```
+#### 也可对set进行链式调用。
 ```
 map4.set('k2', 2).set('k3', 4).set('k4', 5)
 console.log('map4 size: %s', map4.size)
-```
+
 结果：
 
 map4 size: 7
- 
+```
 
 ### 3.get
 
@@ -93,11 +94,11 @@ map4 size: 7
 const map5 = new Map();
 map5.set('k1', 6)  
 console.log('map5 value: %s', map5.get('k1'))
-```
+
 结果：
 
 map5 value: 6
- 
+```
 
 ### 4.has
 
@@ -107,12 +108,12 @@ const map6 = new Map();
 map6.set(undefined, 4)
 console.log('map6 undefined: %s', map6.has(undefined))
 console.log('map6 k1: %s', map6.has('k1'))
-```
+
 结果：
 
 map6 undefined: true
 map6 k1: false
- 
+```
 
 ### 5.delete
 
@@ -122,17 +123,17 @@ const map7 = new Map();
 map7.set(undefined, 4)
 map7.delete(undefined)
 console.log('map7 undefined: %s', map7.has(undefined))
-```
+
 结果：
 
 map7 undefined: false
- 
+```
 
 ### 6.clear
 
 删除map中的所有键值对。
 
-复制代码
+
 ```
 const map8 = new Map();
 map8.set('k1', 1);
@@ -141,13 +142,13 @@ map8.set('k3', 3);
 console.log('map8, pre-clear size: %s', map8.size)
 map8.clear()
 console.log('map8, post-clear size: %s', map8.size)
-```
-复制代码
+
+
 结果：
 
 map8, pre-clear size: 3
 map8, post-clear size: 0
- 
+```
 
 ## 遍历
 
@@ -155,7 +156,7 @@ map8, post-clear size: 0
 
 遍历map的所有key。
 
-复制代码
+
 ```
 const map9 = new Map();
 map9.set('k1', 1);
@@ -164,14 +165,14 @@ map9.set('k3', 3);
 for (let key of map9.keys()) {
   console.log(key);
 }
-```
-复制代码
+
+
 结果：
 
 k1 
 k2 
 k3 
- 
+```
 
 ### 2.values()
 
@@ -180,13 +181,13 @@ k3
 for (let value of map9.values()) {
   console.log(value);
 }
-```
+
 结果：
 
 1 
 2 
 3 
- 
+```
 
 ### 3.entries()
 
@@ -197,22 +198,22 @@ for (let value of map9.values()) {
 for (let item of map9.entries()) {
   console.log(item[0], item[1]);
 }
-```
+
 结果：
 
 k1 1
 k2 2
 k3 3
- 
+```
 
 方法2：
 ```
 for (let [key, value] of map9.entries()) {
   console.log(key, value);
 }
-```
-结果不变。
 
+结果不变。
+```
  
 
 ### 4.forEach()
@@ -222,17 +223,18 @@ for (let [key, value] of map9.entries()) {
 map9.forEach(function(value, key, map) {
   console.log("Key: %s, Value: %s", key, value);
 });
-```
+
 结果：
 
 Key: k1, Value: 1
 Key: k2, Value: 2
 Key: k3, Value: 3
+```
 forEach有第二个参数，可以用来绑定this。
 
 这样有个好处，map的存储的数据和业务处理对象可以分离，业务处理对象可以尽可能的按职责分割的明确符合SRP原则。
 
-复制代码
+
 ```
 const output = {
   log: function(key, value) {
@@ -244,7 +246,7 @@ map9.forEach(function(value, key, map) {
   this.log(key, value);
 }, output);
 ```
-复制代码
+
  
 
 ## 和其它结构的互转
@@ -257,12 +259,12 @@ const map10 = new Map();
 map10.set('k1', 1);
 map10.set('k2', 2);
 map10.set('k3', 3);
-console.log([...map10]);
-```
+
 结果：
 
 [ [ 'k1', 1 ], [ 'k2', 2 ], [ 'k3', 3 ] ]
- 
+ console.log([...map10]);
+```
 
 ### 2.Array To Map
 
@@ -273,17 +275,17 @@ const map11 = new Map([
   ['age', 12]
 ])
 console.log(map11)
-```
+
 结果：
 
 Map { 'name' => 'Aissen', 'age' => 12 }
- 
+```
 
 ### 3.Map To Object
 
 写一个转换函数，遍历map的所有元素，将元素的键和值作为对象属性名和值写入Object中。
 
-复制代码
+
 ```
 function mapToObj(map) {
   let obj = Object.create(null);
@@ -297,18 +299,18 @@ const map12 = new Map()
   .set('k1', 1)
   .set({pa:1}, 2);
 console.log(mapToObj(map12))
-```
-复制代码
+
+
  结果：
 
 { k1: 1, '[object Object]': 2 }
- 
+```
 
 ### 4.Object To Map
 
 同理，再写一个转换函数便利Object，将属性名和值作为键值对写入Map。
 
-复制代码
+
 ```
 function objToMap(obj) {
   let map = new Map();
@@ -319,12 +321,12 @@ function objToMap(obj) {
 }
 
 console.log(objToMap({yes: true, no: false}))
-```
-复制代码
+
+
 结果：
 
 Map { 'yes' => true, 'no' => false }
- 
+```
 
 ### 5.Set To Map
 ```
@@ -334,15 +336,15 @@ const set = new Set([
 ]);
 const map13 = new Map(set)
 console.log(map13)
-```
+
 结果：
 
 Map { 'foo' => 1, 'bar' => 2 }
- 
+```
 
 ### 6.Map To Set
 
-复制代码
+
 ```
 function mapToSet(map) {
   let set = new Set()
@@ -356,8 +358,9 @@ const map14 = new Map()
   .set('k1', 1)
   .set({pa:1}, 2);
 console.log(mapToSet(map14))
-```
-复制代码
+
+
 结果：
 
 Set { [ 'k1', 1 ], [ { pa: 1 }, 2 ] }
+```
