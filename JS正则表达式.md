@@ -263,8 +263,8 @@ function getByClass(parent,classname){
         
 }
 ```
-```
-\a 表示重复的某个子项 比如：
+
+### \a 表示重复的某个子项 比如：
 
 \1 重复的第一个子项
 
@@ -272,7 +272,8 @@ function getByClass(parent,classname){
 
 / (a) (b) (c) \1/-----匹配 abca
 / (a) (b) (c) \2/------匹配 abcb
-例子（面试题中经常问到）：找重复项最多的字符个数
+
+#### 例子（面试题中经常问到）：找重复项最多的字符个数
 
 split():字符串中的方法，把字符串转成数组。
 
@@ -280,7 +281,7 @@ sort():数组中的排序方法，按照ACALL码进行排序。
 
 join():数组中的方法，把数组转换为字符串
 
-```
+
 ```
 var str = 'assssjdssskssalsssdkjsssdss';
 
