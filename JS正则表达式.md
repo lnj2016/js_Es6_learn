@@ -1,6 +1,3 @@
-### 正则表达式，有木有人像我一样，学了好几遍却还是很懵圈，学的时候老明白了，学完了忘光了。好吧，其实还是练的不够，所谓温故而知新，可以为师矣，今天就随我来复习一下这傲娇的正则表达式吧。
-
-为啥要有正则表达式呢？其实就是因为计算机笨（这话不是我说的），比如123456@qq.com，我们一看就是邮箱，可是计算机不认识啊，所以我们就要用一些计算机认识的语言，来制定好规则，告诉它符合这个规则的就是个邮箱，这样计算机就能帮我们找到对应的东西了。所以正则就是用来设置规则，来完成我们需求的一些操作的，比如登录验证啦，搜索指定的东西啦等等，说太多都是多余，直接看正题吧。
 
 ## 定义正则：
 
@@ -384,5 +381,75 @@ number : /\d+/
 re.email
 ```
 
-## es6 正则
+### g 修饰符
+执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）。
+```
+new RegExp("regexp","g")
+
+或者更简单方式：
+
+/regexp/g
+```
+### m 修饰符
+执行多行匹配。
+### i 修饰符
+i 修饰符用于执行对大小写不敏感的匹配。
+```
+new RegExp("regexp","i")
+
+或者更简单方式：
+
+/regexp/i
+```
+http://www.runoob.com/jsref/jsref-obj-regexp.html
+
+## es6 正则修饰符
+
+### u 修饰符
+
+ES6 对正则表达式添加了u修饰符，含义为“Unicode 模式”，用来正确处理大于\uFFFF的 Unicode 字符。也就是说，会正确处理四个字节的 UTF-16 编码。
+```
+/^\uD83D/u.test('\uD83D\uDC2A') // false
+/^\uD83D/.test('\uD83D\uDC2A') // true
+http://es6.ruanyifeng.com/#docs/regex
+```
+### y 修饰符
+除了u修饰符，ES6 还为正则表达式添加了y修饰符，叫做“粘连”（sticky）修饰符。
+
+y修饰符的作用与g修饰符类似，也是全局匹配，后一次匹配都从上一次匹配成功的下一个位置开始。不同之处在于，g修饰符只要剩余位置中存在匹配就可，而y修饰符确保匹配必须从剩余的第一个位置开始，这也就是“粘连”的涵义。
+
+y修饰符的一个应用，是从字符串提取 token（词元），y修饰符确保了匹配之间不会有漏掉的字符。
+```
+const TOKEN_Y = /\s*(\+|[0-9]+)\s*/y;
+const TOKEN_G  = /\s*(\+|[0-9]+)\s*/g;
+
+tokenize(TOKEN_Y, '3 + 4')
+// [ '3', '+', '4' ]
+tokenize(TOKEN_G, '3 + 4')
+// [ '3', '+', '4' ]
+
+function tokenize(TOKEN_REGEX, str) {
+  let result = [];
+  let match;
+  while (match = TOKEN_REGEX.exec(str)) {
+    result.push(match[1]);
+  }
+  return result;
+}
+```
+### s 修饰符：dotAll 模式
+正则表达式中，点（.）是一个特殊字符，代表任意的单个字符，但是有两个例外。一个是四个字节的 UTF-16 字符，这个可以用u修饰符解决；另一个是行终止符（line terminator character）。
+
+所谓行终止符，就是该字符表示一行的终结。以下四个字符属于”行终止符“。
+
+U+000A 换行符（\n）
+U+000D 回车符（\r）
+U+2028 行分隔符（line separator）
+U+2029 段分隔符（paragraph separator）
+
+ES2018 引入s修饰符，使得.可以匹配任意单个字符。
+```
+/foo.bar/s.test('foo\nbar') // true
+```
+
 http://es6.ruanyifeng.com/#docs/regex
