@@ -401,6 +401,7 @@ new RegExp("regexp","i")
 
 /regexp/i
 ```
+#### 详细手册
 http://www.runoob.com/jsref/jsref-obj-regexp.html
 
 ## es6 正则修饰符
@@ -451,5 +452,5 @@ ES2018 引入s修饰符，使得.可以匹配任意单个字符。
 ```
 /foo.bar/s.test('foo\nbar') // true
 ```
-
+#### 详细手册
 http://es6.ruanyifeng.com/#docs/regex
