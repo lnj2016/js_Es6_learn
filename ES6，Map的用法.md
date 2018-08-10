@@ -9,7 +9,7 @@ ES6提供了”值-值“对的数据结构，键名不仅可以是字符串，�
 ## 特性
 
 ### 1.键值对，键可以是对象。
-```
+```javascript
 const map1 = new Map()
 const objkey = {p1: 'v1'}
 
@@ -22,7 +22,7 @@ hello
 ```
 
 ### 2.Map可以接受数组作为参数，数组成员还是一个数组，其中有两个元素，一个表示键一个表示值。
-```
+```javascript
 const map2 = new Map([
   ['name', 'Aissen'],
   ['age', 12]
@@ -41,7 +41,7 @@ Aissen
 ### 1.size
 
 获取map的大小。
-```
+```javascript
 const map3 = new Map();
 map3.set('k1', 1);
 map3.set('k2', 2);
@@ -57,7 +57,7 @@ console.log('%s', map3.size)
 
 设置键值对，键可以是各种类型，包括undefined，function。
 
-```
+```javascript
 const map4 = new Map();
 map4.set('k1', 6)        // 键是字符串
 map4.set(222, '哈哈哈')     // 键是数值
@@ -78,7 +78,7 @@ undefined value: gagaga
 fun value: fun
 ```
 #### 也可对set进行链式调用。
-```
+```javascript
 map4.set('k2', 2).set('k3', 4).set('k4', 5)
 console.log('map4 size: %s', map4.size)
 
@@ -90,7 +90,7 @@ map4 size: 7
 ### 3.get
 
 获取键对应的值。
-```
+```javascript
 const map5 = new Map();
 map5.set('k1', 6)  
 console.log('map5 value: %s', map5.get('k1'))
@@ -103,7 +103,7 @@ map5 value: 6
 ### 4.has
 
 判断指定的键是否存在。
-```
+```javascript
 const map6 = new Map();
 map6.set(undefined, 4)
 console.log('map6 undefined: %s', map6.has(undefined))
@@ -118,7 +118,7 @@ map6 k1: false
 ### 5.delete
 
 删除键值对。
-```
+```javascript
 const map7 = new Map();
 map7.set(undefined, 4)
 map7.delete(undefined)
@@ -134,7 +134,7 @@ map7 undefined: false
 删除map中的所有键值对。
 
 
-```
+```javascript
 const map8 = new Map();
 map8.set('k1', 1);
 map8.set('k2', 2);
@@ -157,7 +157,7 @@ map8, post-clear size: 0
 遍历map的所有key。
 
 
-```
+```javascript
 const map9 = new Map();
 map9.set('k1', 1);
 map9.set('k2', 2);
@@ -177,7 +177,7 @@ k3
 ### 2.values()
 
  遍历map所有的值。
-```
+```javascript
 for (let value of map9.values()) {
   console.log(value);
 }
@@ -194,7 +194,7 @@ for (let value of map9.values()) {
 遍历map的所有键值对。
 
 方法1：
-```
+```javascript
 for (let item of map9.entries()) {
   console.log(item[0], item[1]);
 }
@@ -207,7 +207,7 @@ k3 3
 ```
 
 方法2：
-```
+```javascript
 for (let [key, value] of map9.entries()) {
   console.log(key, value);
 }
@@ -219,7 +219,7 @@ for (let [key, value] of map9.entries()) {
 ### 4.forEach()
 
 遍历map的所有键值对。
-```
+```javascript
 map9.forEach(function(value, key, map) {
   console.log("Key: %s, Value: %s", key, value);
 });
@@ -235,7 +235,7 @@ forEach有第二个参数，可以用来绑定this。
 这样有个好处，map的存储的数据和业务处理对象可以分离，业务处理对象可以尽可能的按职责分割的明确符合SRP原则。
 
 
-```
+```javascript
 const output = {
   log: function(key, value) {
     console.log("Key: %s, Value: %s", key, value);
@@ -254,7 +254,7 @@ map9.forEach(function(value, key, map) {
 ### 1.Map To Array
 
 使用扩展运算符三个点（...）可将map内的元素都展开的数组。
-```
+```javascript
 const map10 = new Map();
 map10.set('k1', 1);
 map10.set('k2', 2);
@@ -269,7 +269,7 @@ map10.set('k3', 3);
 ### 2.Array To Map
 
 使用数组构造Map。
-```
+```javascript
 const map11 = new Map([
   ['name', 'Aissen'],
   ['age', 12]
@@ -286,7 +286,7 @@ Map { 'name' => 'Aissen', 'age' => 12 }
 写一个转换函数，遍历map的所有元素，将元素的键和值作为对象属性名和值写入Object中。
 
 
-```
+```javascript
 function mapToObj(map) {
   let obj = Object.create(null);
   for (let [k,v] of map) {
@@ -311,7 +311,7 @@ console.log(mapToObj(map12))
 同理，再写一个转换函数便利Object，将属性名和值作为键值对写入Map。
 
 
-```
+```javascript
 function objToMap(obj) {
   let map = new Map();
   for (let k of Object.keys(obj)) {
@@ -329,7 +329,7 @@ Map { 'yes' => true, 'no' => false }
 ```
 
 ### 5.Set To Map
-```
+```javascript
 const set = new Set([
   ['foo', 1],
   ['bar', 2]
@@ -345,7 +345,7 @@ Map { 'foo' => 1, 'bar' => 2 }
 ### 6.Map To Set
 
 
-```
+```javascript
 function mapToSet(map) {
   let set = new Set()
   for (let [k,v] of map) {
